@@ -3,6 +3,8 @@ package com.astralticket.entity;
 import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "clients")
@@ -22,6 +24,9 @@ public class Client {
     private String postalCode;
     private String city;
     private String country;
+
+    @OneToMany
+    private List<Order> orderList = new ArrayList<>();
 
     public Client (){}
 
@@ -103,5 +108,13 @@ public class Client {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public List<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
     }
 }

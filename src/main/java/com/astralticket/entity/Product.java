@@ -2,6 +2,7 @@ package com.astralticket.entity;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Locale;
 
 @Entity
 @Table(name = "products")
@@ -12,13 +13,12 @@ public class Product {
     private Long id;
     private String name;
     private Double price;
-    private Integer amount;
     private String description;
     private Integer numberOfPages;
     private Double rating;
 
-    @ManyToMany(mappedBy = "productList")
-    private List<Cart> cartList;
+    @ManyToOne
+    private ProductCategory productCategory;
 
     public Product(){}
 
@@ -46,14 +46,6 @@ public class Product {
         this.price = price;
     }
 
-    public Integer getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Integer amount) {
-        this.amount = amount;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -76,5 +68,13 @@ public class Product {
 
     public void setRating(Double rating) {
         this.rating = rating;
+    }
+
+    public ProductCategory getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(ProductCategory productCategory) {
+        this.productCategory = productCategory;
     }
 }

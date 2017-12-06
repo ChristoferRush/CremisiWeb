@@ -26,7 +26,7 @@ import java.util.Locale;
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
-@ComponentScan(basePackages = "com.astralticket.")
+@ComponentScan(basePackages = "com.astralticket")
 @EnableJpaRepositories(basePackages = "com.astralticket.repository")
 public class AppConfig extends WebMvcConfigurerAdapter {
 
