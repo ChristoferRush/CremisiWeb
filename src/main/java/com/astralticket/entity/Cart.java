@@ -8,8 +8,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
-@Scope("session")
+@Entity
+@Table(name = "cart")
 public class Cart {
 
     @Id

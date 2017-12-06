@@ -29,12 +29,10 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${productList}" var="product">
+        <c:forEach items="${cartItems}" var="item">
             <tr>
-                <td><b>${product.name}</b></td>
-                <td>${product.price}</td>
-                <td>${product.description}</td>
-                <td>${product.rating}</td>
+                <td>${item.amount}</td>
+                <td>${item.product}</td>
             </tr>
         </c:forEach>
         </tbody>

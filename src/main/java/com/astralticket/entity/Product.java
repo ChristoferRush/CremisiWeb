@@ -77,4 +77,8 @@ public class Product {
     public void setProductCategory(ProductCategory productCategory) {
         this.productCategory = productCategory;
     }
+
+    public String toString() {
+        return name + ". " + description;
+    }
 }
