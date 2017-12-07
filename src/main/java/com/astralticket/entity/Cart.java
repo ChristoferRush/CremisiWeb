@@ -2,6 +2,7 @@ package com.astralticket.entity;
 
 import org.springframework.stereotype.Component;
 
+import javax.persistence.OneToOne;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -25,20 +26,20 @@ public class Cart {
         this.id = id;
     }
 
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
-    }
-
     public Map<Long, CartItem> getCartItemMap() {
         return cartItemMap;
     }
 
     public void setCartItemMap(Map<Long, CartItem> cartItemMap) {
         this.cartItemMap = cartItemMap;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
     /*
