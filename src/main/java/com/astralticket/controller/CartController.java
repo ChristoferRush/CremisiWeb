@@ -75,7 +75,11 @@ public class CartController {
         Cart cart = (Cart) session.getAttribute("cart");
         CartItem cartItem = cart.getCartItemById(id);
         cartItem.decreaseAmount(1);
-        cart.putToCartMap(id, cartItem);
+        if(cartItem.getAmount() < 1){
+            cart.removeFromCartMap(cartItem.getProduct().getId());
+        } else {
+            cart.putToCartMap(id, cartItem);
+        }
         session.setAttribute("cart", cart);
         return"redirect:/cart/list";
     }
