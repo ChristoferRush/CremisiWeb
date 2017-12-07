@@ -18,7 +18,10 @@
 
 <div class="container">
     <h2>Cremisi Online Comic Store</h2>
-    <p>List of our available products:</p>
+    <p class="col-lg-8">Your cart:</p>
+    <div class="col-lg-4">
+        <p><a href="<c:url value='/product/list'/>">Back to products</a></p>
+    </div>
     <table class="table table-hover">
         <thead>
         <tr>
@@ -34,10 +37,12 @@
                 <td>${item.product}</td>
                 <td><a href="<c:url value='/cart/increase/${item.product.id}'/>">Increase amount</a></td>
                 <td><a href="<c:url value='/cart/decrease/${item.product.id}'/>">Decrease amount</a></td>
+                <td><a href="<c:url value='/cart/remove/${item.product.id}'/>">Remove from cart</a></td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
+    <p class="offset-8 col-lg-4"><a href="<c:url value='/order'/>">Proceed to order</a></p>
 </div>
 
 </body>

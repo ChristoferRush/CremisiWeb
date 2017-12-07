@@ -8,6 +8,6 @@ public class HomeController {
 
     @RequestMapping("/")
     public String indexView(){
-        return "index";
+        return "redirect:/product/list";
     }
 }

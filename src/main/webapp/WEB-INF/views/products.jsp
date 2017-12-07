@@ -18,7 +18,10 @@
 
 <div class="container">
     <h2>Cremisi Online Comic Store</h2>
-    <p>List of our available products:</p>
+    <p class="col-lg-8">List of our available products:</p>
+    <div class="col-lg-4">
+        <p><a href="<c:url value='/cart/list'/>">View cart</a></p>
+    </div>
     <table class="table table-hover">
         <thead>
         <tr>
@@ -35,7 +38,6 @@
                     <td>${product.price}</td>
                     <td>${product.description}</td>
                     <td>${product.rating}</td>
-                    <td><button type="button" class="btn" formaction="/cart/add/${product.id}">Add to cart</button></td>
                     <td><a href="<c:url value='/cart/add/${product.id}'/>">Add to cart</a></td>
                 </tr>
             </c:forEach>
@@ -45,7 +47,6 @@
                     <td>${product.price}</td>
                     <td>${product.description}</td>
                     <td>${product.rating}</td>
-                    <td><button type="button" class="btn" formaction="/cart/add/${product.id}">Add to cart</button></td>
                     <td><a href="<c:url value='/cart/add/${product.id}'/>">Add to cart</a></td>
                 </tr>
             </c:forEach>
@@ -55,7 +56,7 @@
                     <td>${product.price}</td>
                     <td>${product.description}</td>
                     <td>${product.rating}</td>
-                    <td><button type="button" class="btn" formaction="/cart/add/${product.id}">Add to cart</button></td>
+                    <td><a href="<c:url value='/cart/add/${product.id}'/>">Add to cart</a></td>
                 </tr>
             </c:forEach>
             <c:forEach items="${artBooks}" var="product">
@@ -64,7 +65,7 @@
                     <td>${product.price}</td>
                     <td>${product.description}</td>
                     <td>${product.rating}</td>
-                    <td><button type="button" class="btn" formaction="/cart/add/${product.id}">Add to cart</button></td>
+                    <td><a href="<c:url value='/cart/add/${product.id}'/>">Add to cart</a></td>
                 </tr>
             </c:forEach>
             <c:forEach items="${packs}" var="product">
@@ -73,7 +74,7 @@
                     <td>${product.price}</td>
                     <td>${product.description}</td>
                     <td>${product.rating}</td>
-                    <td><button type="button" class="btn" formaction="/cart/add/${product.id}">Add to cart</button></td>
+                    <td><a href="<c:url value='/cart/add/${product.id}'/>">Add to cart</a></td>
                 </tr>
             </c:forEach>
         </tbody>
