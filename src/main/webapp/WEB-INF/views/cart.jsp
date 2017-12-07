@@ -22,10 +22,9 @@
     <table class="table table-hover">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Description</th>
-            <th>Rating</th>
+            <th>Amount</th>
+            <th>Product</th>
+            <th>Add more</th>
         </tr>
         </thead>
         <tbody>
@@ -33,6 +32,8 @@
             <tr>
                 <td>${item.amount}</td>
                 <td>${item.product}</td>
+                <td><a href="<c:url value='/cart/increase/${item.product.id}'/>">Increase amount</a></td>
+                <td><a href="<c:url value='/cart/decrease/${item.product.id}'/>">Decrease amount</a></td>
             </tr>
         </c:forEach>
         </tbody>

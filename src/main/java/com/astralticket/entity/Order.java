@@ -13,8 +13,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToOne
-    private Cart cart;
+//    private Cart cart;
 
     @ManyToOne
     private Client client;
@@ -27,13 +26,13 @@ public class Order {
         this.id = id;
     }
 
-    public Cart getCart() {
-        return cart;
-    }
-
-    public void setCart(Cart cart) {
-        this.cart = cart;
-    }
+//    public Cart getCart() {
+//        return cart;
+//    }
+//
+//    public void setCart(Cart cart) {
+//        this.cart = cart;
+//    }
 
     public Client getClient() {
         return client;

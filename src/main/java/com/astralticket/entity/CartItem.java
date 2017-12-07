@@ -1,20 +1,14 @@
 package com.astralticket.entity;
 
-import javax.persistence.*;
+import org.springframework.stereotype.Component;
 
-@Entity
-@Table(name = "cartItem")
+@Component
 public class CartItem {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     private Integer amount;
 
-    @ManyToOne
     private Product product;
 
-    @ManyToOne
     private Cart cart;
 
     public CartItem(){}
@@ -22,14 +16,6 @@ public class CartItem {
     public CartItem(Integer amount, Product product) {
         this.amount = amount;
         this.product = product;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Integer getAmount() {
@@ -55,4 +41,19 @@ public class CartItem {
     public void setCart(Cart cart) {
         this.cart = cart;
     }
+
+    /*
+     * Increase amount of cart item
+     */
+    public void increaseAmount(Integer value){
+        amount += value;
+    }
+
+    /*
+     * Decrease amount of cart item
+     */
+    public void decreaseAmount(Integer value){
+        amount -= value;
+    }
+
 }

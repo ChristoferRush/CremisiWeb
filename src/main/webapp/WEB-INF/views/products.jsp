@@ -36,6 +36,7 @@
                     <td>${product.description}</td>
                     <td>${product.rating}</td>
                     <td><button type="button" class="btn" formaction="/cart/add/${product.id}">Add to cart</button></td>
+                    <td><a href="<c:url value='/cart/add/${product.id}'/>">Add to cart</a></td>
                 </tr>
             </c:forEach>
             <c:forEach items="${volumes}" var="product">

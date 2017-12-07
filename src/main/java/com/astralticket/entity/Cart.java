@@ -1,28 +1,19 @@
 package com.astralticket.entity;
 
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.*;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
-@Entity
-@Table(name = "cart")
+@Component
 public class Cart {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToMany
-    private List<CartItem> cartItemList = new ArrayList<>();
+    private Map<Long, CartItem> cartItemMap = new HashMap<>();
 
-    @OneToOne
     private Order order;
-
-    private BigDecimal totalPrice;
 
     public Cart(){}
 
@@ -42,19 +33,37 @@ public class Cart {
         this.order = order;
     }
 
-    public List<CartItem> getCartItemList() {
-        return cartItemList;
+    public Map<Long, CartItem> getCartItemMap() {
+        return cartItemMap;
     }
 
-    public void setCartItemList(List<CartItem> cartItemList) {
-        this.cartItemList = cartItemList;
+    public void setCartItemMap(Map<Long, CartItem> cartItemMap) {
+        this.cartItemMap = cartItemMap;
     }
 
-    public BigDecimal getTotalPrice() {
-        return totalPrice;
+    /*
+     * check if cart contains certain cart item
+     */
+    public boolean containsKey(Long key){
+        Set<Long> keys = cartItemMap.keySet();
+        return keys.contains(key);
     }
 
-    public void setTotalPrice(BigDecimal totalPrice) {
-        this.totalPrice = totalPrice;
+    /*
+     * returns cart item from map by product id
+     */
+    public CartItem getCartItemById(Long id){
+        return getCartItemMap().get(id);
+    }
+
+    /*
+     * puts to cart map
+     */
+    public void putToCartMap(Long id, CartItem cartItem){
+        cartItemMap.put(id, cartItem);
+    }
+
+    public void removeFromCartMap(Long id){
+        cartItemMap.remove(id);
     }
 }
